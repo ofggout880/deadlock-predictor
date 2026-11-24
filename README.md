@@ -9,6 +9,9 @@
 *Predicting 14-day player abandonment and acute tilt across 8,625 rolling windows (1,094 players) using leak-free Source 2 telemetry, regularized Gradient Boosting, and ethical 50/50 matchmaking policy design.*
 
 <p>
+  <a href="https://ofggout880.github.io/deadlock-predictor/">
+    <img src="https://img.shields.io/badge/LIVE%20DEMO-GITHUB%20PAGES-22C55E?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Demo - GitHub Pages" />
+  </a>
   <a href="https://www.linkedin.com/in/matthieu-gout">
     <img src="https://img.shields.io/badge/LINKEDIN-MATTHIEU%20GOUT-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn - Matthieu Gout" />
   </a>
