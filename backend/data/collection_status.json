@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "plan": "Plan 3 (Free Tier - 1500 Players)",
+  "players_completed": 1500,
+  "players_target": 1500,
+  "raw_matches_analyzed": 923185,
+  "training_windows_extracted": 10000,
+  "total_api_calls": 1842,
+  "estimated_cost_usd": 0.0,
+  "elapsed_seconds": 236.2,
+  "current_message": "Collecte étendue terminée : 1 500 joueurs uniques | 923 185 matchs bruts analysés | 10 000 fenêtres W=20 extraites sans fuite temporelle (Taux de Churn 14j = 24.26%, 2 426 cas positifs).",
+  "updated_at": "2026-11-09T11:57:00.000000+00:00"
+}

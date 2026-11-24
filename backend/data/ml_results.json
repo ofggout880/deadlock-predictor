@@ -1,0 +1,1420 @@
+{
+  "generated_at": "2026-11-23T13:56:34Z",
+  "debiased_audit": {
+    "time_matched_corr_start_time_churn": -0.1597,
+    "avg_session_gap_days_excluded": true,
+    "match_frequency_drift_excluded": true,
+    "colsample_max_features": 0.5,
+    "champion_overfit_gap_roc": 0.0747,
+    "cv_strategy": "StratifiedGroupKFold(n_splits=5, groups=account_id)",
+    "champion_selection_criterion": "0.5 * oof_roc_auc + 0.5 * oof_pr_auc"
+  },
+  "dataset_summary": {
+    "total_windows": 8625,
+    "unique_players": 1094,
+    "enriched_acute_matches": 9811,
+    "train_windows": 6930,
+    "test_windows": 1695,
+    "test_churn_count": 425,
+    "test_retained_count": 1270,
+    "churn_positive_count": 2138,
+    "churn_rate": 0.2479,
+    "candidate_features_total": 106,
+    "optimal_features_count": 36
+  },
+  "hidden_gems_audit": [
+    {
+      "feature": "unsecured_souls_lost_per_min",
+      "mean_retained": 15.2299,
+      "mean_churned": 15.7327,
+      "rel_diff_pct": 3.3,
+      "pearson_r": 0.0118,
+      "mutual_info": 0.0236
+    },
+    {
+      "feature": "match_T_unsecured_souls_lost",
+      "mean_retained": 575.4991,
+      "mean_churned": 568.627,
+      "rel_diff_pct": -1.19,
+      "pearson_r": -0.004,
+      "mutual_info": 0.0183
+    },
+    {
+      "feature": "unsecured_treasure_ratio",
+      "mean_retained": 0.224,
+      "mean_churned": 0.2239,
+      "rel_diff_pct": -0.06,
+      "pearson_r": -0.0002,
+      "mutual_info": 0.0266
+    },
+    {
+      "feature": "headshot_diff_rate",
+      "mean_retained": -0.7017,
+      "mean_churned": -0.52,
+      "rel_diff_pct": 25.9,
+      "pearson_r": 0.0076,
+      "mutual_info": 0.0539
+    },
+    {
+      "feature": "incoming_headshot_rate",
+      "mean_retained": 17.7593,
+      "mean_churned": 17.8525,
+      "rel_diff_pct": 0.52,
+      "pearson_r": 0.0051,
+      "mutual_info": 0.0687
+    },
+    {
+      "feature": "aim_duel_hit_diff",
+      "mean_retained": 0.6301,
+      "mean_churned": 1.2056,
+      "rel_diff_pct": 91.32,
+      "pearson_r": 0.0213,
+      "mutual_info": 0.0389
+    },
+    {
+      "feature": "stun_headshots_taken_rate",
+      "mean_retained": 0.6841,
+      "mean_churned": 0.8148,
+      "rel_diff_pct": 19.1,
+      "pearson_r": 0.0106,
+      "mutual_info": 0.0379
+    },
+    {
+      "feature": "parry_miss_per_match",
+      "mean_retained": 2.4933,
+      "mean_churned": 2.4865,
+      "rel_diff_pct": -0.28,
+      "pearson_r": -0.001,
+      "mutual_info": 0.0658
+    },
+    {
+      "feature": "match_T_parry_misses",
+      "mean_retained": 2.514,
+      "mean_churned": 2.5263,
+      "rel_diff_pct": 0.49,
+      "pearson_r": 0.0016,
+      "mutual_info": 0.0551
+    },
+    {
+      "feature": "melee_kill_rate",
+      "mean_retained": 0.5184,
+      "mean_churned": 0.487,
+      "rel_diff_pct": -6.05,
+      "pearson_r": -0.0158,
+      "mutual_info": 0.0407
+    },
+    {
+      "feature": "grey_screen_ratio",
+      "mean_retained": 0.1194,
+      "mean_churned": 0.1246,
+      "rel_diff_pct": 4.36,
+      "pearson_r": 0.0362,
+      "mutual_info": 0.0062
+    },
+    {
+      "feature": "match_T_grey_screen_ratio",
+      "mean_retained": 0.1196,
+      "mean_churned": 0.1242,
+      "rel_diff_pct": 3.89,
+      "pearson_r": 0.0302,
+      "mutual_info": 0.0075
+    },
+    {
+      "feature": "instant_burst_death_rate",
+      "mean_retained": 0.0087,
+      "mean_churned": 0.0077,
+      "rel_diff_pct": -11.87,
+      "pearson_r": -0.0121,
+      "mutual_info": 0.0589
+    },
+    {
+      "feature": "avg_time_to_kill_s",
+      "mean_retained": 13.8215,
+      "mean_churned": 13.9061,
+      "rel_diff_pct": 0.61,
+      "pearson_r": 0.0066,
+      "mutual_info": 0.0202
+    },
+    {
+      "feature": "items_sold_per_match",
+      "mean_retained": 5.6591,
+      "mean_churned": 5.3797,
+      "rel_diff_pct": -4.94,
+      "pearson_r": -0.0412,
+      "mutual_info": 0.0698
+    },
+    {
+      "feature": "rage_sell_rate",
+      "mean_retained": 0.4927,
+      "mean_churned": 0.4623,
+      "rel_diff_pct": -6.17,
+      "pearson_r": -0.0278,
+      "mutual_info": 0.0756
+    },
+    {
+      "feature": "match_T_rage_sell",
+      "mean_retained": 0.4928,
+      "mean_churned": 0.4635,
+      "rel_diff_pct": -5.96,
+      "pearson_r": -0.0254,
+      "mutual_info": 0.0339
+    },
+    {
+      "feature": "late_panic_sells",
+      "mean_retained": 0.3183,
+      "mean_churned": 0.3101,
+      "rel_diff_pct": -2.59,
+      "pearson_r": -0.0063,
+      "mutual_info": 0.0618
+    },
+    {
+      "feature": "party_play_pct",
+      "mean_retained": 0.6795,
+      "mean_churned": 0.6636,
+      "rel_diff_pct": -2.34,
+      "pearson_r": -0.0231,
+      "mutual_info": 0.0718
+    },
+    {
+      "feature": "solo_isolation_streak",
+      "mean_retained": 1.438,
+      "mean_churned": 2.2188,
+      "rel_diff_pct": 54.29,
+      "pearson_r": 0.0858,
+      "mutual_info": 0.0525
+    },
+    {
+      "feature": "match_T_is_solo",
+      "mean_retained": 0.3186,
+      "mean_churned": 0.366,
+      "rel_diff_pct": 14.88,
+      "pearson_r": 0.0436,
+      "mutual_info": 0.0455
+    },
+    {
+      "feature": "party_abandonment_drift",
+      "mean_retained": 0.0005,
+      "mean_churned": 0.0086,
+      "rel_diff_pct": 1721.25,
+      "pearson_r": 0.014,
+      "mutual_info": 0.0528
+    },
+    {
+      "feature": "throw_heartbreak_loss_rate",
+      "mean_retained": 0.1285,
+      "mean_churned": 0.1245,
+      "rel_diff_pct": -3.13,
+      "pearson_r": -0.0134,
+      "mutual_info": 0.0527
+    },
+    {
+      "feature": "match_T_heartbreak_loss",
+      "mean_retained": 0.2105,
+      "mean_churned": 0.217,
+      "rel_diff_pct": 3.09,
+      "pearson_r": 0.0069,
+      "mutual_info": 0.0338
+    },
+    {
+      "feature": "comeback_gold_per_min",
+      "mean_retained": 33.6629,
+      "mean_churned": 34.9963,
+      "rel_diff_pct": 3.96,
+      "pearson_r": 0.0141,
+      "mutual_info": 0.0068
+    },
+    {
+      "feature": "teammate_support_per_min",
+      "mean_retained": 36.2342,
+      "mean_churned": 31.1921,
+      "rel_diff_pct": -13.92,
+      "pearson_r": -0.0217,
+      "mutual_info": 0.0345
+    },
+    {
+      "feature": "damage_mitigated_per_min",
+      "mean_retained": 313.7912,
+      "mean_churned": 336.3772,
+      "rel_diff_pct": 7.2,
+      "pearson_r": 0.0352,
+      "mutual_info": 0.0
+    }
+  ],
+  "ablation_study": {
+    "1. Domain I Only: 3D Shooter Aim (12 feat)": {
+      "num_features": 12,
+      "threshold": 0.16,
+      "accuracy": 0.2661,
+      "precision": 0.2538,
+      "recall": 0.9929,
+      "f1_score": 0.4042,
+      "roc_auc": 0.5877,
+      "pr_auc": 0.3204,
+      "brier_score": 0.1845,
+      "confusion_matrix": {
+        "tp": 422,
+        "fp": 1241,
+        "tn": 29,
+        "fn": 3
+      },
+      "oof_roc_auc": 0.5661,
+      "oof_pr_auc": 0.2853,
+      "train_roc_auc": 0.6761,
+      "overfit_gap_roc": 0.0884
+    },
+    "2. Domain II Only: Soul Economy (12 feat)": {
+      "num_features": 12,
+      "threshold": 0.2,
+      "accuracy": 0.4914,
+      "precision": 0.2967,
+      "recall": 0.7506,
+      "f1_score": 0.4253,
+      "roc_auc": 0.6307,
+      "pr_auc": 0.3846,
+      "brier_score": 0.1787,
+      "confusion_matrix": {
+        "tp": 319,
+        "fp": 756,
+        "tn": 514,
+        "fn": 106
+      },
+      "oof_roc_auc": 0.627,
+      "oof_pr_auc": 0.3584,
+      "train_roc_auc": 0.7048,
+      "overfit_gap_roc": 0.0741
+    },
+    "3. Domain III Only: Combat & Objectives (12 feat)": {
+      "num_features": 12,
+      "threshold": 0.185,
+      "accuracy": 0.3717,
+      "precision": 0.2668,
+      "recall": 0.8612,
+      "f1_score": 0.4073,
+      "roc_auc": 0.6198,
+      "pr_auc": 0.3822,
+      "brier_score": 0.1797,
+      "confusion_matrix": {
+        "tp": 366,
+        "fp": 1006,
+        "tn": 264,
+        "fn": 59
+      },
+      "oof_roc_auc": 0.6236,
+      "oof_pr_auc": 0.3669,
+      "train_roc_auc": 0.7136,
+      "overfit_gap_roc": 0.0938
+    },
+    "4. Domain IV Only: Pure In-Game Psychology & Tilt (11 feat)": {
+      "num_features": 11,
+      "threshold": 0.19,
+      "accuracy": 0.4519,
+      "precision": 0.2896,
+      "recall": 0.8165,
+      "f1_score": 0.4276,
+      "roc_auc": 0.6636,
+      "pr_auc": 0.4272,
+      "brier_score": 0.1741,
+      "confusion_matrix": {
+        "tp": 347,
+        "fp": 851,
+        "tn": 419,
+        "fn": 78
+      },
+      "oof_roc_auc": 0.6749,
+      "oof_pr_auc": 0.3962,
+      "train_roc_auc": 0.7292,
+      "overfit_gap_roc": 0.0656
+    },
+    "5. Domain VII Only: The 7 Source 2 Hidden Gems (27 feat)": {
+      "num_features": 27,
+      "threshold": 0.23,
+      "accuracy": 0.6389,
+      "precision": 0.3806,
+      "recall": 0.7012,
+      "f1_score": 0.4934,
+      "roc_auc": 0.7121,
+      "pr_auc": 0.481,
+      "brier_score": 0.1669,
+      "confusion_matrix": {
+        "tp": 298,
+        "fp": 485,
+        "tn": 785,
+        "fn": 127
+      },
+      "oof_roc_auc": 0.7138,
+      "oof_pr_auc": 0.4294,
+      "train_roc_auc": 0.7939,
+      "overfit_gap_roc": 0.0818
+    },
+    "6. Baseline Pure In-Game (Without Hidden Gems)": {
+      "num_features": 68,
+      "threshold": 0.22,
+      "accuracy": 0.6383,
+      "precision": 0.3813,
+      "recall": 0.7106,
+      "f1_score": 0.4963,
+      "roc_auc": 0.7207,
+      "pr_auc": 0.5353,
+      "brier_score": 0.161,
+      "confusion_matrix": {
+        "tp": 302,
+        "fp": 490,
+        "tn": 780,
+        "fn": 123
+      },
+      "oof_roc_auc": 0.7109,
+      "oof_pr_auc": 0.4896,
+      "train_roc_auc": 0.7994,
+      "overfit_gap_roc": 0.0787
+    },
+    "7. Full Enriched In-Game + 7 Hidden Gems + Interactions": {
+      "num_features": 106,
+      "threshold": 0.23,
+      "accuracy": 0.6637,
+      "precision": 0.3997,
+      "recall": 0.68,
+      "f1_score": 0.5035,
+      "roc_auc": 0.7359,
+      "pr_auc": 0.5537,
+      "brier_score": 0.158,
+      "confusion_matrix": {
+        "tp": 289,
+        "fp": 434,
+        "tn": 836,
+        "fn": 136
+      },
+      "oof_roc_auc": 0.7422,
+      "oof_pr_auc": 0.5096,
+      "train_roc_auc": 0.8333,
+      "overfit_gap_roc": 0.0974
+    }
+  },
+  "feature_optimization": {
+    "collinearity_dropped": [
+      {
+        "dropped": "total_shots",
+        "kept": "shots_hit",
+        "corr": 0.961
+      },
+      {
+        "dropped": "hero_rel_accuracy_zscore",
+        "kept": "accuracy_pct",
+        "corr": 1.0
+      },
+      {
+        "dropped": "crit_accuracy_pct",
+        "kept": "headshot_ratio",
+        "corr": 1.0
+      },
+      {
+        "dropped": "death_replay_view_ratio",
+        "kept": "watched_death_replays",
+        "corr": 0.924
+      },
+      {
+        "dropped": "net_worth_10m",
+        "kept": "souls_per_min",
+        "corr": 0.969
+      },
+      {
+        "dropped": "net_worth_20m",
+        "kept": "souls_per_min",
+        "corr": 0.955
+      },
+      {
+        "dropped": "orb_steal_rate",
+        "kept": "denies_per_min",
+        "corr": 0.922
+      },
+      {
+        "dropped": "tier3_item_timing",
+        "kept": "tier4_item_timing",
+        "corr": 0.941
+      },
+      {
+        "dropped": "flex_slot_unlock_time",
+        "kept": "kda_ratio",
+        "corr": 0.967
+      },
+      {
+        "dropped": "patron_damage_share",
+        "kept": "kda_ratio",
+        "corr": 0.984
+      },
+      {
+        "dropped": "damage_mitigated_per_min",
+        "kept": "damage_per_min",
+        "corr": 0.916
+      },
+      {
+        "dropped": "tilt_index",
+        "kept": "recent_loss_streak",
+        "corr": 0.978
+      },
+      {
+        "dropped": "pause_tilt_frequency",
+        "kept": "recent_loss_streak",
+        "corr": 0.981
+      },
+      {
+        "dropped": "ix_tilt_x_match_T_loss",
+        "kept": "recent_loss_streak",
+        "corr": 0.979
+      },
+      {
+        "dropped": "rejoin_latency_s",
+        "kept": "abandon_rate",
+        "corr": 0.94
+      },
+      {
+        "dropped": "demotion_risk_pct",
+        "kept": "ix_rank_anxiety",
+        "corr": 0.936
+      },
+      {
+        "dropped": "match_T_abandoned",
+        "kept": "ix_ragequit_propensity",
+        "corr": 0.93
+      },
+      {
+        "dropped": "avg_session_duration_min",
+        "kept": "avg_session_games",
+        "corr": 0.924
+      },
+      {
+        "dropped": "match_T_parry_misses",
+        "kept": "parry_miss_per_match",
+        "corr": 0.951
+      },
+      {
+        "dropped": "ix_parry_fail_x_deaths",
+        "kept": "parry_miss_per_match",
+        "corr": 0.982
+      },
+      {
+        "dropped": "match_T_grey_screen_ratio",
+        "kept": "grey_screen_ratio",
+        "corr": 0.934
+      },
+      {
+        "dropped": "ix_grey_screen_x_burst",
+        "kept": "grey_screen_ratio",
+        "corr": 0.973
+      },
+      {
+        "dropped": "match_T_rage_sell",
+        "kept": "rage_sell_rate",
+        "corr": 0.943
+      }
+    ],
+    "topk_cv_sweep": {
+      "24": {
+        "cv_roc_auc": 0.7341,
+        "cv_pr_auc": 0.4924
+      },
+      "30": {
+        "cv_roc_auc": 0.7344,
+        "cv_pr_auc": 0.4905
+      },
+      "36": {
+        "cv_roc_auc": 0.7407,
+        "cv_pr_auc": 0.5202
+      },
+      "42": {
+        "cv_roc_auc": 0.7366,
+        "cv_pr_auc": 0.5104
+      },
+      "48": {
+        "cv_roc_auc": 0.7384,
+        "cv_pr_auc": 0.5084
+      },
+      "56": {
+        "cv_roc_auc": 0.7374,
+        "cv_pr_auc": 0.5108
+      },
+      "83": {
+        "cv_roc_auc": 0.733,
+        "cv_pr_auc": 0.5218
+      }
+    },
+    "selected_optimal_k": 36,
+    "optimal_features": [
+      "ix_session_marathon_fatigue",
+      "match_T_is_solo",
+      "solo_isolation_streak",
+      "stun_headshots_taken_rate",
+      "souls_per_min_trend",
+      "net_worth_end",
+      "ix_ragequit_propensity",
+      "rage_sell_rate",
+      "party_play_pct",
+      "match_T_heartbreak_loss",
+      "guardian_kills",
+      "early_quit_rate",
+      "late_panic_sells",
+      "unsecured_treasure_ratio",
+      "match_T_stomp_loss",
+      "recent_stomp_losses",
+      "avg_session_games",
+      "unsecured_souls_lost_per_min",
+      "mid_boss_participations",
+      "crosshair_on_target_pct",
+      "melee_kill_rate",
+      "abandon_rate",
+      "incoming_headshot_rate",
+      "items_sold_per_match",
+      "party_abandonment_drift",
+      "parry_miss_per_match",
+      "session_fatigue_index",
+      "recent_loss_streak",
+      "night_owl_pct",
+      "ix_rank_anxiety",
+      "ability_unlock_pace",
+      "headshot_ratio",
+      "ix_solo_x_loss_streak",
+      "grey_screen_ratio",
+      "win_rate",
+      "match_T_unsecured_souls_lost"
+    ],
+    "top_features_ranking": [
+      {
+        "rank": 1,
+        "feature": "rage_sell_rate",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 14.093,
+        "mutual_info": 0.0715
+      },
+      {
+        "rank": 2,
+        "feature": "ix_session_marathon_fatigue",
+        "domain": "VI. Behavioral Interaction",
+        "importance_pct": 13.56,
+        "mutual_info": 0.0151
+      },
+      {
+        "rank": 3,
+        "feature": "ability_unlock_pace",
+        "domain": "II. Soul Economy",
+        "importance_pct": 9.781,
+        "mutual_info": 0.016
+      },
+      {
+        "rank": 4,
+        "feature": "guardian_kills",
+        "domain": "III. Combat & Objectives",
+        "importance_pct": 6.805,
+        "mutual_info": 0.0105
+      },
+      {
+        "rank": 5,
+        "feature": "match_T_is_solo",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 6.655,
+        "mutual_info": 0.0487
+      },
+      {
+        "rank": 6,
+        "feature": "ix_ragequit_propensity",
+        "domain": "VI. Behavioral Interaction",
+        "importance_pct": 6.123,
+        "mutual_info": 0.0548
+      },
+      {
+        "rank": 7,
+        "feature": "net_worth_end",
+        "domain": "II. Soul Economy",
+        "importance_pct": 6.036,
+        "mutual_info": 0.0106
+      },
+      {
+        "rank": 8,
+        "feature": "party_play_pct",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 3.649,
+        "mutual_info": 0.0703
+      },
+      {
+        "rank": 9,
+        "feature": "melee_kill_rate",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 3.482,
+        "mutual_info": 0.0537
+      },
+      {
+        "rank": 10,
+        "feature": "solo_isolation_streak",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 3.338,
+        "mutual_info": 0.0533
+      },
+      {
+        "rank": 11,
+        "feature": "match_T_stomp_loss",
+        "domain": "V. Match-T & Trends",
+        "importance_pct": 3.319,
+        "mutual_info": 0.0278
+      },
+      {
+        "rank": 12,
+        "feature": "early_quit_rate",
+        "domain": "IV. Psychology & Tilt",
+        "importance_pct": 3.089,
+        "mutual_info": 0.0581
+      },
+      {
+        "rank": 13,
+        "feature": "crosshair_on_target_pct",
+        "domain": "I. 3D Shooter Aim",
+        "importance_pct": 2.973,
+        "mutual_info": 0.0006
+      },
+      {
+        "rank": 14,
+        "feature": "souls_per_min_trend",
+        "domain": "V. Match-T & Trends",
+        "importance_pct": 2.7,
+        "mutual_info": 0.0059
+      },
+      {
+        "rank": 15,
+        "feature": "unsecured_treasure_ratio",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 2.086,
+        "mutual_info": 0.029
+      },
+      {
+        "rank": 16,
+        "feature": "avg_session_games",
+        "domain": "V. Match-T & Trends",
+        "importance_pct": 1.985,
+        "mutual_info": 0.0684
+      },
+      {
+        "rank": 17,
+        "feature": "match_T_unsecured_souls_lost",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 1.597,
+        "mutual_info": 0.0145
+      },
+      {
+        "rank": 18,
+        "feature": "grey_screen_ratio",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 1.232,
+        "mutual_info": 0.0061
+      },
+      {
+        "rank": 19,
+        "feature": "stun_headshots_taken_rate",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 1.066,
+        "mutual_info": 0.0392
+      },
+      {
+        "rank": 20,
+        "feature": "mid_boss_participations",
+        "domain": "III. Combat & Objectives",
+        "importance_pct": 0.869,
+        "mutual_info": 0.0596
+      },
+      {
+        "rank": 21,
+        "feature": "recent_loss_streak",
+        "domain": "IV. Psychology & Tilt",
+        "importance_pct": 0.806,
+        "mutual_info": 0.0555
+      },
+      {
+        "rank": 22,
+        "feature": "win_rate",
+        "domain": "V. Match-T & Trends",
+        "importance_pct": 0.787,
+        "mutual_info": 0.0604
+      },
+      {
+        "rank": 23,
+        "feature": "abandon_rate",
+        "domain": "IV. Psychology & Tilt",
+        "importance_pct": 0.763,
+        "mutual_info": 0.0526
+      },
+      {
+        "rank": 24,
+        "feature": "party_abandonment_drift",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.605,
+        "mutual_info": 0.0605
+      },
+      {
+        "rank": 25,
+        "feature": "ix_rank_anxiety",
+        "domain": "VI. Behavioral Interaction",
+        "importance_pct": 0.587,
+        "mutual_info": 0.0477
+      },
+      {
+        "rank": 26,
+        "feature": "unsecured_souls_lost_per_min",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.561,
+        "mutual_info": 0.0278
+      },
+      {
+        "rank": 27,
+        "feature": "late_panic_sells",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.521,
+        "mutual_info": 0.0661
+      },
+      {
+        "rank": 28,
+        "feature": "session_fatigue_index",
+        "domain": "IV. Psychology & Tilt",
+        "importance_pct": 0.435,
+        "mutual_info": 0.049
+      },
+      {
+        "rank": 29,
+        "feature": "parry_miss_per_match",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.224,
+        "mutual_info": 0.0669
+      },
+      {
+        "rank": 30,
+        "feature": "items_sold_per_match",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.158,
+        "mutual_info": 0.0749
+      },
+      {
+        "rank": 31,
+        "feature": "incoming_headshot_rate",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.088,
+        "mutual_info": 0.0685
+      },
+      {
+        "rank": 32,
+        "feature": "headshot_ratio",
+        "domain": "I. 3D Shooter Aim",
+        "importance_pct": 0.028,
+        "mutual_info": 0.0655
+      },
+      {
+        "rank": 33,
+        "feature": "recent_stomp_losses",
+        "domain": "V. Match-T & Trends",
+        "importance_pct": 0.0,
+        "mutual_info": 0.0535
+      },
+      {
+        "rank": 34,
+        "feature": "night_owl_pct",
+        "domain": "IV. Psychology & Tilt",
+        "importance_pct": 0.0,
+        "mutual_info": 0.0521
+      },
+      {
+        "rank": 35,
+        "feature": "ix_solo_x_loss_streak",
+        "domain": "VI. Behavioral Interaction",
+        "importance_pct": 0.0,
+        "mutual_info": 0.0408
+      },
+      {
+        "rank": 36,
+        "feature": "match_T_heartbreak_loss",
+        "domain": "VII. Source 2 Hidden Gem",
+        "importance_pct": 0.0,
+        "mutual_info": 0.0257
+      }
+    ]
+  },
+  "champion_model": {
+    "key": "grad_boost_colsample",
+    "display_name": "Gradient Boosting (Depth-3, Colsample=0.50, Subsample=0.75)",
+    "train_roc_auc": 0.8221,
+    "train_pr_auc": 0.6584,
+    "oof_roc_auc": 0.7451,
+    "oof_pr_auc": 0.5,
+    "overfit_gap_roc": 0.0747,
+    "overfit_gap_pr": 0.1505,
+    "test_f1_optimal": {
+      "threshold": 0.225,
+      "accuracy": 0.6667,
+      "precision": 0.4081,
+      "recall": 0.7318,
+      "f1_score": 0.524,
+      "roc_auc": 0.7474,
+      "pr_auc": 0.5079,
+      "brier_score": 0.1604,
+      "confusion_matrix": {
+        "tp": 311,
+        "fp": 451,
+        "tn": 819,
+        "fn": 114
+      }
+    },
+    "test_recall80_optimal": {
+      "threshold": 0.19,
+      "accuracy": 0.5593,
+      "precision": 0.3425,
+      "recall": 0.8235,
+      "f1_score": 0.4838,
+      "roc_auc": 0.7474,
+      "pr_auc": 0.5079,
+      "brier_score": 0.1604,
+      "confusion_matrix": {
+        "tp": 350,
+        "fp": 672,
+        "tn": 598,
+        "fn": 75
+      }
+    }
+  },
+  "models_benchmark": {
+    "grad_boost_colsample": {
+      "display_name": "Gradient Boosting (Depth-3, Colsample=0.50, Subsample=0.75)",
+      "train_roc_auc": 0.8221,
+      "train_pr_auc": 0.6584,
+      "oof_roc_auc": 0.7451,
+      "oof_pr_auc": 0.5,
+      "overfit_gap_roc": 0.0747,
+      "overfit_gap_pr": 0.1505,
+      "test_f1_optimal": {
+        "threshold": 0.225,
+        "accuracy": 0.6667,
+        "precision": 0.4081,
+        "recall": 0.7318,
+        "f1_score": 0.524,
+        "roc_auc": 0.7474,
+        "pr_auc": 0.5079,
+        "brier_score": 0.1604,
+        "confusion_matrix": {
+          "tp": 311,
+          "fp": 451,
+          "tn": 819,
+          "fn": 114
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.19,
+        "accuracy": 0.5593,
+        "precision": 0.3425,
+        "recall": 0.8235,
+        "f1_score": 0.4838,
+        "roc_auc": 0.7474,
+        "pr_auc": 0.5079,
+        "brier_score": 0.1604,
+        "confusion_matrix": {
+          "tp": 350,
+          "fp": 672,
+          "tn": 598,
+          "fn": 75
+        }
+      }
+    },
+    "xgb_smote": {
+      "display_name": "HistGradientBoosting (XGBoost Arch) + In-Fold SMOTE",
+      "train_roc_auc": 0.7897,
+      "train_pr_auc": 0.585,
+      "oof_roc_auc": 0.7274,
+      "oof_pr_auc": 0.4763,
+      "overfit_gap_roc": 0.0563,
+      "overfit_gap_pr": 0.0846,
+      "test_f1_optimal": {
+        "threshold": 0.395,
+        "accuracy": 0.6549,
+        "precision": 0.3916,
+        "recall": 0.68,
+        "f1_score": 0.497,
+        "roc_auc": 0.7334,
+        "pr_auc": 0.5004,
+        "brier_score": 0.1802,
+        "confusion_matrix": {
+          "tp": 289,
+          "fp": 449,
+          "tn": 821,
+          "fn": 136
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.34,
+        "accuracy": 0.577,
+        "precision": 0.3476,
+        "recall": 0.7835,
+        "f1_score": 0.4816,
+        "roc_auc": 0.7334,
+        "pr_auc": 0.5004,
+        "brier_score": 0.1802,
+        "confusion_matrix": {
+          "tp": 333,
+          "fp": 625,
+          "tn": 645,
+          "fn": 92
+        }
+      }
+    },
+    "xgb_calibrated": {
+      "display_name": "Calibrated HistGradientBoosting (Colsample=0.50 + Sigmoid Calibration)",
+      "train_roc_auc": 0.8064,
+      "train_pr_auc": 0.6212,
+      "oof_roc_auc": 0.7368,
+      "oof_pr_auc": 0.4905,
+      "overfit_gap_roc": 0.073,
+      "overfit_gap_pr": 0.1226,
+      "test_f1_optimal": {
+        "threshold": 0.245,
+        "accuracy": 0.6826,
+        "precision": 0.4153,
+        "recall": 0.6518,
+        "f1_score": 0.5073,
+        "roc_auc": 0.7334,
+        "pr_auc": 0.4986,
+        "brier_score": 0.1616,
+        "confusion_matrix": {
+          "tp": 277,
+          "fp": 390,
+          "tn": 880,
+          "fn": 148
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.175,
+        "accuracy": 0.574,
+        "precision": 0.3495,
+        "recall": 0.8118,
+        "f1_score": 0.4887,
+        "roc_auc": 0.7334,
+        "pr_auc": 0.4986,
+        "brier_score": 0.1616,
+        "confusion_matrix": {
+          "tp": 345,
+          "fp": 642,
+          "tn": 628,
+          "fn": 80
+        }
+      }
+    },
+    "random_forest": {
+      "display_name": "Random Forest (Pruned Depth-6, Colsample=0.45, MinLeaf=40)",
+      "train_roc_auc": 0.8268,
+      "train_pr_auc": 0.6527,
+      "oof_roc_auc": 0.7297,
+      "oof_pr_auc": 0.4768,
+      "overfit_gap_roc": 0.1063,
+      "overfit_gap_pr": 0.1698,
+      "test_f1_optimal": {
+        "threshold": 0.43,
+        "accuracy": 0.6077,
+        "precision": 0.3624,
+        "recall": 0.7435,
+        "f1_score": 0.4873,
+        "roc_auc": 0.7205,
+        "pr_auc": 0.4829,
+        "brier_score": 0.2059,
+        "confusion_matrix": {
+          "tp": 316,
+          "fp": 556,
+          "tn": 714,
+          "fn": 109
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.415,
+        "accuracy": 0.5699,
+        "precision": 0.3439,
+        "recall": 0.7882,
+        "f1_score": 0.4789,
+        "roc_auc": 0.7205,
+        "pr_auc": 0.4829,
+        "brier_score": 0.2059,
+        "confusion_matrix": {
+          "tp": 335,
+          "fp": 639,
+          "tn": 631,
+          "fn": 90
+        }
+      }
+    },
+    "extra_trees": {
+      "display_name": "Extra Trees (Pruned Depth-7, Colsample=0.50, MinLeaf=35)",
+      "train_roc_auc": 0.784,
+      "train_pr_auc": 0.5928,
+      "oof_roc_auc": 0.7136,
+      "oof_pr_auc": 0.4711,
+      "overfit_gap_roc": 0.0772,
+      "overfit_gap_pr": 0.1296,
+      "test_f1_optimal": {
+        "threshold": 0.49,
+        "accuracy": 0.6572,
+        "precision": 0.3914,
+        "recall": 0.6612,
+        "f1_score": 0.4917,
+        "roc_auc": 0.7068,
+        "pr_auc": 0.4632,
+        "brier_score": 0.2241,
+        "confusion_matrix": {
+          "tp": 281,
+          "fp": 437,
+          "tn": 833,
+          "fn": 144
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.445,
+        "accuracy": 0.5463,
+        "precision": 0.3333,
+        "recall": 0.8094,
+        "f1_score": 0.4722,
+        "roc_auc": 0.7068,
+        "pr_auc": 0.4632,
+        "brier_score": 0.2241,
+        "confusion_matrix": {
+          "tp": 344,
+          "fp": 688,
+          "tn": 582,
+          "fn": 81
+        }
+      }
+    },
+    "mlp_neural": {
+      "display_name": "MLP Neural Network (64x32 ReLU, L2 alpha=0.6)",
+      "train_roc_auc": 0.8499,
+      "train_pr_auc": 0.6886,
+      "oof_roc_auc": 0.6499,
+      "oof_pr_auc": 0.4011,
+      "overfit_gap_roc": 0.196,
+      "overfit_gap_pr": 0.2766,
+      "test_f1_optimal": {
+        "threshold": 0.155,
+        "accuracy": 0.4726,
+        "precision": 0.298,
+        "recall": 0.8141,
+        "f1_score": 0.4363,
+        "roc_auc": 0.6539,
+        "pr_auc": 0.412,
+        "brier_score": 0.2071,
+        "confusion_matrix": {
+          "tp": 346,
+          "fp": 815,
+          "tn": 455,
+          "fn": 79
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.36,
+        "accuracy": 0.6265,
+        "precision": 0.3443,
+        "recall": 0.5412,
+        "f1_score": 0.4209,
+        "roc_auc": 0.6539,
+        "pr_auc": 0.412,
+        "brier_score": 0.2071,
+        "confusion_matrix": {
+          "tp": 230,
+          "fp": 438,
+          "tn": 832,
+          "fn": 195
+        }
+      }
+    },
+    "logistic_l2": {
+      "display_name": "Logistic Regression (L2 Linear Baseline)",
+      "train_roc_auc": 0.6589,
+      "train_pr_auc": 0.3926,
+      "oof_roc_auc": 0.6423,
+      "oof_pr_auc": 0.3732,
+      "overfit_gap_roc": 0.02,
+      "overfit_gap_pr": 0.0171,
+      "test_f1_optimal": {
+        "threshold": 0.415,
+        "accuracy": 0.449,
+        "precision": 0.2845,
+        "recall": 0.7906,
+        "f1_score": 0.4184,
+        "roc_auc": 0.6389,
+        "pr_auc": 0.3755,
+        "brier_score": 0.2368,
+        "confusion_matrix": {
+          "tp": 336,
+          "fp": 845,
+          "tn": 425,
+          "fn": 89
+        }
+      },
+      "test_recall80_optimal": {
+        "threshold": 0.415,
+        "accuracy": 0.449,
+        "precision": 0.2845,
+        "recall": 0.7906,
+        "f1_score": 0.4184,
+        "roc_auc": 0.6389,
+        "pr_auc": 0.3755,
+        "brier_score": 0.2368,
+        "confusion_matrix": {
+          "tp": 336,
+          "fp": 845,
+          "tn": 425,
+          "fn": 89
+        }
+      }
+    }
+  },
+  "calibrated_curve_points": [
+    {
+      "threshold": 0.05,
+      "precision": 0.2507,
+      "recall": 1.0,
+      "f1": 0.4009,
+      "fpr": 1.0,
+      "tpr": 1.0,
+      "tp": 425,
+      "fp": 1270,
+      "tn": 0,
+      "fn": 0
+    },
+    {
+      "threshold": 0.1,
+      "precision": 0.2571,
+      "recall": 0.9976,
+      "f1": 0.4089,
+      "fpr": 0.9646,
+      "tpr": 0.9976,
+      "tp": 424,
+      "fp": 1225,
+      "tn": 45,
+      "fn": 1
+    },
+    {
+      "threshold": 0.15,
+      "precision": 0.2982,
+      "recall": 0.9318,
+      "f1": 0.4518,
+      "fpr": 0.7339,
+      "tpr": 0.9318,
+      "tp": 396,
+      "fp": 932,
+      "tn": 338,
+      "fn": 29
+    },
+    {
+      "threshold": 0.19,
+      "precision": 0.3425,
+      "recall": 0.8235,
+      "f1": 0.4838,
+      "fpr": 0.5291,
+      "tpr": 0.8235,
+      "tp": 350,
+      "fp": 672,
+      "tn": 598,
+      "fn": 75
+    },
+    {
+      "threshold": 0.2,
+      "precision": 0.359,
+      "recall": 0.7906,
+      "f1": 0.4938,
+      "fpr": 0.4724,
+      "tpr": 0.7906,
+      "tp": 336,
+      "fp": 600,
+      "tn": 670,
+      "fn": 89
+    },
+    {
+      "threshold": 0.225,
+      "precision": 0.4081,
+      "recall": 0.7318,
+      "f1": 0.524,
+      "fpr": 0.3551,
+      "tpr": 0.7318,
+      "tp": 311,
+      "fp": 451,
+      "tn": 819,
+      "fn": 114
+    },
+    {
+      "threshold": 0.25,
+      "precision": 0.4492,
+      "recall": 0.6659,
+      "f1": 0.5365,
+      "fpr": 0.2732,
+      "tpr": 0.6659,
+      "tp": 283,
+      "fp": 347,
+      "tn": 923,
+      "fn": 142
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.4978,
+      "recall": 0.5224,
+      "f1": 0.5098,
+      "fpr": 0.1764,
+      "tpr": 0.5224,
+      "tp": 222,
+      "fp": 224,
+      "tn": 1046,
+      "fn": 203
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.5409,
+      "recall": 0.4047,
+      "f1": 0.463,
+      "fpr": 0.115,
+      "tpr": 0.4047,
+      "tp": 172,
+      "fp": 146,
+      "tn": 1124,
+      "fn": 253
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.589,
+      "recall": 0.3271,
+      "f1": 0.4206,
+      "fpr": 0.0764,
+      "tpr": 0.3271,
+      "tp": 139,
+      "fp": 97,
+      "tn": 1173,
+      "fn": 286
+    },
+    {
+      "threshold": 0.45,
+      "precision": 0.638,
+      "recall": 0.2447,
+      "f1": 0.3537,
+      "fpr": 0.0465,
+      "tpr": 0.2447,
+      "tp": 104,
+      "fp": 59,
+      "tn": 1211,
+      "fn": 321
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.6466,
+      "recall": 0.1765,
+      "f1": 0.2773,
+      "fpr": 0.0323,
+      "tpr": 0.1765,
+      "tp": 75,
+      "fp": 41,
+      "tn": 1229,
+      "fn": 350
+    },
+    {
+      "threshold": 0.55,
+      "precision": 0.675,
+      "recall": 0.1271,
+      "f1": 0.2139,
+      "fpr": 0.0205,
+      "tpr": 0.1271,
+      "tp": 54,
+      "fp": 26,
+      "tn": 1244,
+      "fn": 371
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.6667,
+      "recall": 0.0753,
+      "f1": 0.1353,
+      "fpr": 0.0126,
+      "tpr": 0.0753,
+      "tp": 32,
+      "fp": 16,
+      "tn": 1254,
+      "fn": 393
+    },
+    {
+      "threshold": 0.65,
+      "precision": 0.6765,
+      "recall": 0.0541,
+      "f1": 0.1002,
+      "fpr": 0.0087,
+      "tpr": 0.0541,
+      "tp": 23,
+      "fp": 11,
+      "tn": 1259,
+      "fn": 402
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.7619,
+      "recall": 0.0376,
+      "f1": 0.0717,
+      "fpr": 0.0039,
+      "tpr": 0.0376,
+      "tp": 16,
+      "fp": 5,
+      "tn": 1265,
+      "fn": 409
+    },
+    {
+      "threshold": 0.75,
+      "precision": 0.7778,
+      "recall": 0.0165,
+      "f1": 0.0323,
+      "fpr": 0.0016,
+      "tpr": 0.0165,
+      "tp": 7,
+      "fp": 2,
+      "tn": 1268,
+      "fn": 418
+    },
+    {
+      "threshold": 0.8,
+      "precision": 1.0,
+      "recall": 0.0047,
+      "f1": 0.0094,
+      "fpr": 0.0,
+      "tpr": 0.0047,
+      "tp": 2,
+      "fp": 0,
+      "tn": 1270,
+      "fn": 423
+    },
+    {
+      "threshold": 0.85,
+      "precision": 1.0,
+      "recall": 0.0024,
+      "f1": 0.0047,
+      "fpr": 0.0,
+      "tpr": 0.0024,
+      "tp": 1,
+      "fp": 0,
+      "tn": 1270,
+      "fn": 424
+    },
+    {
+      "threshold": 0.9,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "tpr": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 1270,
+      "fn": 425
+    },
+    {
+      "threshold": 0.95,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "tpr": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 1270,
+      "fn": 425
+    }
+  ],
+  "elapsed_training_seconds": 424.47
+}

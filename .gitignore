@@ -1,0 +1,27 @@
+# OS & Editor
+.DS_Store
+*.swp
+*.swo
+
+# Environments & Secrets
+.env
+.env.*
+!.env.example
+
+# Python / Backend
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Large raw API cache (>100 MB GitHub limit)
+backend/data/raw_histories_cache.joblib
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Local tooling & pre-redesign backup
+.hallmark/
+backup/
