@@ -137,224 +137,232 @@ export default function HeroSection({ lang, t }) {
               </div>
               <div className="mockup-status-title">
                 <span className="pulse-indicator"></span>
-                <span>{isFr ? 'flux_télémétrie // prédiction_match_T // horizon_14j' : 'telemetry_stream // match_T_prediction // cutoff_horizon_14d'}</span>
+                <span>{isFr ? 'cohorte_source2 // taux_churn_14j_par_niveau_de_tilt (N = 8 625)' : 'source2_cohort // real_14d_churn_rate_by_tilt_tier (N = 8,625)'}</span>
               </div>
-              <span className="mockup-version-tag">{isFr ? 'Moteur 3D Source 2 ML • 100% En Partie Pur' : 'Source 2 ML • 100% In-Game Pure'}</span>
+              <span className="mockup-version-tag">{isFr ? 'Données Réelles · deadlock_churn_dataset.csv' : 'Empirical Data · deadlock_churn_dataset.csv'}</span>
             </div>
 
-            {/* Inner Visual Graphic */}
-            <div className="mockup-visual-body">
+            {/* Empirical 14-Day Churn Rate by Tilt Tier (Zero Stretch, Real CSV Data) */}
+            <div className="mockup-visual-body" style={{ padding: '0.5rem 0 0.25rem 0' }}>
               <div className="mockup-grid-backdrop" aria-hidden="true"></div>
-              
-              {/* Telemetry Stream SVG Wave */}
-              <div className="telemetry-chart-wrapper">
-                {/* Desktop Telemetry Stream SVG Wave */}
-                <svg className="telemetry-svg-stream telemetry-svg-desktop" viewBox="0 0 820 220" preserveAspectRatio="none" style={{ height: '180px' }}>
+
+              <div className="telemetry-chart-wrapper" style={{ width: '100%', maxWidth: '920px', margin: '0 auto' }}>
+                <svg
+                  viewBox="0 0 920 262"
+                  preserveAspectRatio="xMidYMid meet"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  role="img"
+                  aria-label={
+                    isFr
+                      ? 'Taux de churn réel à 14 jours selon le niveau de Tilt sur 8 625 fenêtres : 23,1 % (<15), 26,3 % (15–30), 27,2 % (30–60), 41,1 % (≥60)'
+                      : 'Empirical 14-day churn rate by Tilt tier across 8,625 windows: 23.1% (<15), 26.3% (15-30), 27.2% (30-60), 41.1% (>=60)'
+                  }
+                >
                   <defs>
-                    <linearGradient id="streamGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#69e799" stopOpacity="0.38" />
-                      <stop offset="55%" stopColor="#10b981" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                    <linearGradient id="heroChurnArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#69e799" stopOpacity="0.18" />
+                      <stop offset="100%" stopColor="#69e799" stopOpacity="0.0" />
                     </linearGradient>
-                    <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="0">
+                    <linearGradient id="heroChurnLine" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="#10b981" />
-                      <stop offset="38%" stopColor="#69e799" />
-                      <stop offset="52%" stopColor="#d8ec57" />
-                      <stop offset="68%" stopColor="#ef4444" />
-                      <stop offset="85%" stopColor="#ef4444" />
-                      <stop offset="100%" stopColor="#38bdf8" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Telemetry Guide Grid Lines */}
-                  <line x1="0" y1="52" x2="820" y2="52" stroke="rgba(239, 68, 68, 0.16)" strokeDasharray="4 4" />
-                  <line x1="0" y1="100" x2="820" y2="100" stroke="rgba(216, 236, 87, 0.18)" strokeDasharray="3 3" />
-                  <line x1="0" y1="145" x2="820" y2="145" stroke="rgba(255, 255, 255, 0.1)" strokeDasharray="2 2" />
-
-                  {/* Filled Area (Pre-T Active Window) */}
-                  <path
-                    d="M 0,138 C 70,132 140,146 210,138 C 280,130 350,150 420,144 C 460,140 490,162 520,140 C 538,124 550,52 560,52 L 560,220 L 0,220 Z"
-                    fill="url(#streamGlow)"
-                  />
-
-                  {/* Glowing Telemetry Curve Line (Active Window M-8 -> Match T) */}
-                  <path
-                    d="M 0,138 C 70,132 140,146 210,138 C 280,130 350,150 420,144 C 460,140 490,162 520,140 C 538,124 550,52 560,52"
-                    fill="none"
-                    stroke="url(#lineGlow)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Post-T Inactivity / Churn Horizon Drop (Dashed to signify game exit, not recovery) */}
-                  <path
-                    d="M 560,52 C 578,80 605,158 655,182 C 705,196 760,192 820,194"
-                    fill="none"
-                    stroke="rgba(239, 68, 68, 0.72)"
-                    strokeWidth="2.5"
-                    strokeDasharray="6 5"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Level Guide Badges (Rendered in foreground with crisp contrast & background pill) */}
-                  <g transform="translate(10, 34)">
-                    <rect x="0" y="0" width="174" height="18" rx="4" fill="rgba(12, 14, 18, 0.9)" stroke="rgba(239, 68, 68, 0.35)" strokeWidth="0.8" />
-                    <text x="87" y="9" fill="#f87171" fontSize="8.5" fontWeight="600" letterSpacing="0.05em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'ZONE CRITIQUE // TILT ≥ 60' : 'CRITICAL ZONE // TILT ≥ 60'}
-                    </text>
-                  </g>
-
-                  <g transform="translate(10, 82)">
-                    <rect x="0" y="0" width={isFr ? 132 : 148} height="18" rx="4" fill="rgba(12, 14, 18, 0.9)" stroke="rgba(216, 236, 87, 0.42)" strokeWidth="0.8" />
-                    <text x={isFr ? 66 : 74} y="9" fill="#d8ec57" fontSize="8.5" fontWeight="600" letterSpacing="0.05em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'VIGILANCE // TILT ≥ 30' : 'WARNING // TILT ≥ 30'}
-                    </text>
-                  </g>
-
-                  {/* Baseline Nominale Badge: positioned cleanly below line 145 free from curve overlap */}
-                  <g transform="translate(10, 152)">
-                    <rect x="0" y="0" width="134" height="18" rx="4" fill="rgba(12, 14, 18, 0.92)" stroke="rgba(148, 163, 184, 0.35)" strokeWidth="0.8" />
-                    <text x="67" y="9" fill="#cbd5e1" fontSize="8.5" fontWeight="600" letterSpacing="0.05em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'BASELINE NOMINALE' : 'NOMINAL BASELINE'}
-                    </text>
-                  </g>
-
-                  {/* Post-T Inactivity Callout */}
-                  <g transform="translate(658, 128)">
-                    <rect x="0" y="0" width="148" height="20" rx="4" fill="rgba(239, 68, 68, 0.12)" stroke="rgba(239, 68, 68, 0.45)" strokeWidth="0.9" />
-                    <text x="74" y="10" fill="#fca5a5" fontSize="8" fontWeight="700" letterSpacing="0.04em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'CHUTE ACTIVITÉ (+14J)' : 'INACTIVITY DROP (+14D)'}
-                    </text>
-                  </g>
-
-                  {/* Optimal Prediction Cutoff Line */}
-                  <line x1="560" y1="58" x2="560" y2="195" stroke="rgba(105, 231, 153, 0.48)" strokeDasharray="4 4" strokeWidth="1.5" />
-                  <g transform="translate(566, 168)">
-                    <rect x="0" y="0" width={isFr ? 142 : 158} height="24" rx="5" fill="rgba(14, 16, 21, 0.96)" stroke="rgba(105, 231, 153, 0.65)" strokeWidth="1.2" />
-                    <text x={isFr ? 71 : 79} y="12" fill="#69e799" fontSize="9" fontWeight="700" letterSpacing="0.04em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'SEUIL θ* = 0.225' : 'CUTOFF θ* = 0.225'}
-                    </text>
-                  </g>
-
-                  {/* Critical Rupture Node (Tilt Spike Peak at x=560, y=52) */}
-                  <g transform="translate(560, 52)">
-                    <circle cx="0" cy="0" r="14" fill="rgba(239, 68, 68, 0.2)" className="animate-ping" />
-                    <circle cx="0" cy="0" r="6" fill="#ef4444" stroke="#ffffff" strokeWidth="2" />
-                    <line x1="0" y1="-6" x2="0" y2="-18" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
-                    <rect x="-80" y="-44" width="160" height="26" rx="6" fill="rgba(14, 16, 21, 0.96)" stroke="#ef4444" strokeWidth="1.2" />
-                    <text x="0" y="-31" fill="#ef4444" fontSize="9.5" fontWeight="700" letterSpacing="0.05em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      TILT : 82.5 / CRIT
-                    </text>
-                  </g>
-
-                  {/* Match Timeline Indicators */}
-                  <text x="70" y="212" fill="rgba(148, 163, 184, 0.65)" fontSize="8.5" fontFamily="var(--font-mono)">M - 8</text>
-                  <text x="220" y="212" fill="rgba(148, 163, 184, 0.65)" fontSize="8.5" fontFamily="var(--font-mono)">M - 6</text>
-                  <text x="380" y="212" fill="rgba(148, 163, 184, 0.65)" fontSize="8.5" fontFamily="var(--font-mono)">{isFr ? 'M - 4 (FATIGUE)' : 'M - 4 (FATIGUE)'}</text>
-                  <text x="560" y="212" fill="rgba(239, 68, 68, 0.95)" fontSize="8.5" fontWeight="700" fontFamily="var(--font-mono)" textAnchor="middle">
-                    {isFr ? 'MATCH T (RUPTURE)' : 'MATCH T (BREAKING POINT)'}
-                  </text>
-                  <text x="740" y="212" fill="rgba(248, 113, 113, 0.85)" fontSize="8.5" fontFamily="var(--font-mono)">{isFr ? '+14J INACTIVITÉ' : '+14D INACTIVE'}</text>
-                </svg>
-
-                {/* Mobile-Optimized Telemetry Stream SVG (Compact, Proportional, No Distortion) */}
-                <svg className="telemetry-svg-stream telemetry-svg-mobile" viewBox="0 0 380 180" preserveAspectRatio="xMidYMid meet">
-                  <defs>
-                    <linearGradient id="streamGlowMobile" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#69e799" stopOpacity="0.4" />
-                      <stop offset="60%" stopColor="#10b981" stopOpacity="0.08" />
-                      <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
-                    </linearGradient>
-                    <linearGradient id="lineGlowMobile" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#10b981" />
-                      <stop offset="38%" stopColor="#69e799" />
-                      <stop offset="52%" stopColor="#d8ec57" />
-                      <stop offset="70%" stopColor="#ef4444" />
-                      <stop offset="85%" stopColor="#ef4444" />
-                      <stop offset="100%" stopColor="#38bdf8" />
+                      <stop offset="48%" stopColor="#69e799" />
+                      <stop offset="72%" stopColor="#d8ec57" />
+                      <stop offset="100%" stopColor="#ef4444" />
                     </linearGradient>
                   </defs>
 
-                  {/* Guide Grid Lines */}
-                  <line x1="0" y1="44" x2="380" y2="44" stroke="rgba(239, 68, 68, 0.16)" strokeDasharray="3 3" />
-                  <line x1="0" y1="80" x2="380" y2="80" stroke="rgba(216, 236, 87, 0.18)" strokeDasharray="3 3" />
-                  <line x1="0" y1="116" x2="380" y2="116" stroke="rgba(255, 255, 255, 0.1)" strokeDasharray="2 2" />
+                  {/* Y-Axis Gridlines (0% to 50% 14-Day Churn Rate) */}
+                  {[
+                    { pct: 0, y: 204 },
+                    { pct: 10, y: 170 },
+                    { pct: 20, y: 136 },
+                    { pct: 30, y: 102 },
+                    { pct: 40, y: 68 },
+                    { pct: 50, y: 34 }
+                  ].map((tick) => (
+                    <g key={tick.pct}>
+                      <line
+                        x1="62"
+                        y1={tick.y}
+                        x2="904"
+                        y2={tick.y}
+                        stroke="rgba(148, 163, 184, 0.12)"
+                        strokeDasharray={tick.pct === 0 ? undefined : '3 4'}
+                        strokeWidth="1"
+                      />
+                      <text
+                        x="52"
+                        y={tick.y + 4}
+                        fill="rgba(148, 163, 184, 0.72)"
+                        fontSize="10.5"
+                        fontFamily="var(--font-mono)"
+                        textAnchor="end"
+                      >
+                        {tick.pct}%
+                      </text>
+                    </g>
+                  ))}
 
-                  {/* Filled Area */}
-                  <path
-                    d="M 0,112 C 40,110 80,118 120,112 C 160,108 195,124 220,114 C 235,102 244,44 250,44 L 250,180 L 0,180 Z"
-                    fill="url(#streamGlowMobile)"
-                  />
-
-                  {/* Glowing Telemetry Curve Line */}
-                  <path
-                    d="M 0,112 C 40,110 80,118 120,112 C 160,108 195,124 220,114 C 235,102 244,44 250,44"
-                    fill="none"
-                    stroke="url(#lineGlowMobile)"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Post-T Inactivity Drop (Dashed) */}
-                  <path
-                    d="M 250,44 C 262,68 278,125 310,148 C 335,156 355,152 380,152"
-                    fill="none"
-                    stroke="rgba(239, 68, 68, 0.72)"
-                    strokeWidth="2.2"
-                    strokeDasharray="5 4"
-                    strokeLinecap="round"
-                  />
-
-                  {/* Compact Level Badges on Mobile */}
-                  <g transform="translate(8, 28)">
-                    <rect x="0" y="0" width="108" height="15" rx="3" fill="rgba(12, 14, 18, 0.9)" stroke="rgba(239, 68, 68, 0.35)" strokeWidth="0.8" />
-                    <text x="54" y="8" fill="#f87171" fontSize="7.5" fontWeight="600" letterSpacing="0.03em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'CRITIQUE ≥ 60' : 'CRITICAL ≥ 60'}
-                    </text>
-                  </g>
-
-                  <g transform="translate(8, 66)">
-                    <rect x="0" y="0" width="78" height="15" rx="3" fill="rgba(12, 14, 18, 0.9)" stroke="rgba(216, 236, 87, 0.42)" strokeWidth="0.8" />
-                    <text x="39" y="8" fill="#d8ec57" fontSize="7.5" fontWeight="600" letterSpacing="0.03em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'VIGILANCE' : 'WARNING'}
-                    </text>
-                  </g>
-
-                  <g transform="translate(8, 122)">
-                    <rect x="0" y="0" width="72" height="15" rx="3" fill="rgba(12, 14, 18, 0.92)" stroke="rgba(148, 163, 184, 0.35)" strokeWidth="0.8" />
-                    <text x="36" y="8" fill="#cbd5e1" fontSize="7.5" fontWeight="600" letterSpacing="0.03em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      BASELINE
-                    </text>
-                  </g>
-
-                  {/* Cutoff Vertical Line */}
-                  <line x1="250" y1="48" x2="250" y2="152" stroke="rgba(105, 231, 153, 0.48)" strokeDasharray="3 3" strokeWidth="1.2" />
-
-                  {/* Threshold Annotation Pill on Mobile */}
-                  <g transform="translate(254, 132)">
-                    <rect x="0" y="0" width={isFr ? 112 : 118} height="20" rx="4" fill="rgba(14, 16, 21, 0.96)" stroke="rgba(105, 231, 153, 0.65)" strokeWidth="1" />
-                    <text x={isFr ? 56 : 59} y="10" fill="#69e799" fontSize="7.2" fontWeight="700" letterSpacing="0.03em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      {isFr ? 'SEUIL θ* = 0.225' : 'CUTOFF θ* = 0.225'}
-                    </text>
-                  </g>
-
-                  {/* Critical Tilt Peak Node on Mobile */}
-                  <g transform="translate(250, 44)">
-                    <circle cx="0" cy="0" r="10" fill="rgba(239, 68, 68, 0.2)" />
-                    <circle cx="0" cy="0" r="5" fill="#ef4444" stroke="#ffffff" strokeWidth="1.5" />
-                    <line x1="0" y1="-5" x2="0" y2="-15" stroke="#ef4444" strokeWidth="1" strokeDasharray="2 2" />
-                    <rect x="-60" y="-36" width="120" height="21" rx="4" fill="rgba(14, 16, 21, 0.96)" stroke="#ef4444" strokeWidth="1" />
-                    <text x="0" y="-25" fill="#ef4444" fontSize="8" fontWeight="700" letterSpacing="0.04em" textAnchor="middle" dominantBaseline="central" fontFamily="var(--font-mono)">
-                      TILT : 82.5 / CRIT
-                    </text>
-                  </g>
-
-                  {/* Clean 3-Milestone Timeline on Mobile */}
-                  <text x="50" y="168" fill="rgba(148, 163, 184, 0.65)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle">M - 3 (FATIGUE)</text>
-                  <text x="250" y="168" fill="rgba(239, 68, 68, 0.95)" fontSize="8" fontWeight="700" fontFamily="var(--font-mono)" textAnchor="middle">
-                    {isFr ? 'MATCH T (RUPTURE)' : 'MATCH T (BREAKING)'}
+                  {/* Y-Axis Unit Label */}
+                  <text
+                    x="62"
+                    y="18"
+                    fill="rgba(148, 163, 184, 0.8)"
+                    fontSize="10.5"
+                    fontWeight="600"
+                    fontFamily="var(--font-mono)"
+                  >
+                    {isFr ? 'TAUX DE CHURN RÉEL À 14 JOURS (%)' : 'EMPIRICAL 14-DAY CHURN RATE (%)'}
                   </text>
-                  <text x="345" y="168" fill="rgba(248, 113, 113, 0.85)" fontSize="8" fontFamily="var(--font-mono)" textAnchor="middle">{isFr ? '+14J CHURN' : '+14D CHURN'}</text>
+
+                  {/* Calibrated Matchmaking Cutoff Line at θ* = 22.5% (y = 127.5) */}
+                  <line
+                    x1="62"
+                    y1="127.5"
+                    x2="710"
+                    y2="127.5"
+                    stroke="rgba(105, 231, 153, 0.65)"
+                    strokeDasharray="6 4"
+                    strokeWidth="1.5"
+                  />
+                  <g transform="translate(712, 115)">
+                    <rect
+                      x="0"
+                      y="0"
+                      width="194"
+                      height="25"
+                      rx="5"
+                      fill="rgba(11, 15, 25, 0.96)"
+                      stroke="rgba(105, 231, 153, 0.55)"
+                      strokeWidth="1"
+                    />
+                    <text
+                      x="97"
+                      y="12.5"
+                      fill="#69e799"
+                      fontSize="9.5"
+                      fontWeight="700"
+                      fontFamily="var(--font-mono)"
+                      textAnchor="middle"
+                      dominantBaseline="central"
+                    >
+                      {isFr ? 'SEUIL ALERTE θ* = 22,5 %' : 'ALERT CUTOFF θ* = 22.5%'}
+                    </text>
+                  </g>
+
+                  {/* 4 Real Empirical Buckets from deadlock_churn_dataset.csv (N = 8,625) */}
+                  {[
+                    {
+                      x: 145,
+                      y: 125.5,
+                      rate: isFr ? '23,1 %' : '23.1%',
+                      tier: isFr ? 'Tilt < 15 · Serein' : 'Tilt < 15 · Calm',
+                      n: isFr ? 'n = 5 624' : 'n = 5,624',
+                      fill: 'rgba(16, 185, 129, 0.22)',
+                      stroke: '#10b981',
+                      valColor: '#69e799'
+                    },
+                    {
+                      x: 315,
+                      y: 114.6,
+                      rate: isFr ? '26,3 %' : '26.3%',
+                      tier: 'Tilt 15–30 · Vigilance',
+                      n: isFr ? 'n = 1 691' : 'n = 1,691',
+                      fill: 'rgba(105, 231, 153, 0.20)',
+                      stroke: '#69e799',
+                      valColor: '#e2e8f0'
+                    },
+                    {
+                      x: 485,
+                      y: 111.5,
+                      rate: isFr ? '27,2 %' : '27.2%',
+                      tier: isFr ? 'Tilt 30–60 · Énervé' : 'Tilt 30–60 · Agitated',
+                      n: isFr ? 'n = 1 018' : 'n = 1,018',
+                      fill: 'rgba(216, 236, 87, 0.20)',
+                      stroke: '#d8ec57',
+                      valColor: '#d8ec57'
+                    },
+                    {
+                      x: 655,
+                      y: 64.3,
+                      rate: isFr ? '41,1 %' : '41.1%',
+                      tier: isFr ? 'Tilt ≥ 60 · Critique' : 'Tilt ≥ 60 · Critical',
+                      n: 'n = 292',
+                      fill: 'rgba(239, 68, 68, 0.26)',
+                      stroke: '#ef4444',
+                      valColor: '#f87171',
+                      highlight: true
+                    }
+                  ].map((b) => (
+                    <g key={b.tier}>
+                      <rect
+                        x={b.x - 38}
+                        y={b.y}
+                        width="76"
+                        height={204 - b.y}
+                        rx="6"
+                        fill={b.fill}
+                        stroke={b.stroke}
+                        strokeWidth={b.highlight ? '1.6' : '1.1'}
+                      />
+                      <text
+                        x={b.x}
+                        y={b.y - 12}
+                        fill={b.valColor}
+                        fontSize={b.highlight ? '14' : '12.5'}
+                        fontWeight="800"
+                        fontFamily="var(--font-mono)"
+                        textAnchor="middle"
+                      >
+                        {b.rate}
+                      </text>
+                      <text
+                        x={b.x}
+                        y="225"
+                        fill="#e2e8f0"
+                        fontSize="11"
+                        fontWeight={b.highlight ? '700' : '600'}
+                        fontFamily="var(--font-body)"
+                        textAnchor="middle"
+                      >
+                        {b.tier}
+                      </text>
+                      <text
+                        x={b.x}
+                        y="242"
+                        fill="rgba(148, 163, 184, 0.72)"
+                        fontSize="10"
+                        fontFamily="var(--font-mono)"
+                        textAnchor="middle"
+                      >
+                        {b.n}
+                      </text>
+                    </g>
+                  ))}
+
+                  {/* Trend Line Connecting Real Empirical Centroids */}
+                  <path
+                    d="M 145,125.5 L 315,114.6 L 485,111.5 L 655,64.3"
+                    fill="none"
+                    stroke="url(#heroChurnLine)"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+
+                  {/* True Circular Data Nodes */}
+                  <circle cx="145" cy="125.5" r="4.5" fill="#10b981" stroke="#0b0f19" strokeWidth="2" />
+                  <circle cx="315" cy="114.6" r="4.5" fill="#69e799" stroke="#0b0f19" strokeWidth="2" />
+                  <circle cx="485" cy="111.5" r="4.5" fill="#d8ec57" stroke="#0b0f19" strokeWidth="2" />
+                  <circle cx="655" cy="64.3" r="6" fill="#ef4444" stroke="#ffffff" strokeWidth="2" />
+
+                  {/* Critical Surge Callout Pill */}
+                  <g transform="translate(565, 10)">
+                    <rect x="0" y="0" width="180" height="24" rx="5" fill="rgba(239, 68, 68, 0.14)" stroke="rgba(239, 68, 68, 0.55)" strokeWidth="1" />
+                    <text x="90" y="12" fill="#fca5a5" fontSize="10" fontWeight="700" fontFamily="var(--font-mono)" textAnchor="middle" dominantBaseline="central">
+                      {isFr ? '+78 % RISQUE VS SEREIN' : '+78% RISK VS CALM'}
+                    </text>
+                  </g>
                 </svg>
               </div>
             </div>
